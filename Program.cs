@@ -19,6 +19,7 @@ internal class Program
         //The following method generates a series of rolls and tallies up how frequently they appear
         int[] aiResults = dr.SimulateRolls(iNumOfRolls);
 
+        //Program prints the results based on the PrintHistogram method
         PrintHistogram(aiResults, iNumOfRolls);
 
         Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
@@ -33,12 +34,14 @@ internal class Program
         Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
         Console.WriteLine($"Total number of rolls = {totalRolls}.");
 
+        // Tallies up an asterisk for every percent each number has. This is based on how many times it has been rolled 
         for (int iCount = 2; iCount <= 12; iCount++)
         {
+            //calculates the percentage 
             double iPercentage = (results[iCount] / (float)totalRolls) * 100;
 
             string MsgAstCollect = "";
-
+            // every percent equals an * when the result is printed
             for (int iCountPct = 0; iCountPct < iPercentage; iCountPct++) 
             {
                 MsgAstCollect += "*";
